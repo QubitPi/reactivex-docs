@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ReactiveX - Documentation</title>
+
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Prism -->
+    <link href="/css/prism.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/css/syntax.css" />
+
+    <!-- Embeddable RxMarbles -->
+    <script defer src="/js/CustomElements.min.js"></script>
+    <script defer src="/js/rx-marbles.js"></script>
+
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"><img src="https://qubitpi.github.io/assets/Rx_Icon.png" style="height:90%;" alt="" /> ReactiveX</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="https://qubitpi.github.io/intro.html">Introduction</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Docs <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="https://qubitpi.github.io/documentation/observable.html">Observable</a></li>
+<li><a href="https://qubitpi.github.io/documentation/operators.html">Operators</a></li>
+<li><a href="https://qubitpi.github.io/documentation/single.html">Single</a></li>
+<li><a href="https://qubitpi.github.io/documentation/subject.html">Subject</a></li>
+<li><a href="https://qubitpi.github.io/documentation/scheduler.html">Scheduler</a></li>
+
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Languages <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="https://github.com/ReactiveX/RxJava">RxJava<span class="external-link"></span></a></li>
+<li><a href="https://github.com/ReactiveX/rxjs">RxJS<span class="external-link"></span></a></li>
+<li><a href="https://github.com/Reactive-Extensions/Rx.NET">Rx.NET<span class="external-link"></span></a></li>
+<li><a href="https://qubitpi.github.io/rxscala">RxScala</a></li>
+<li><a href="https://github.com/ReactiveX/RxClojure">RxClojure<span class="external-link"></span></a></li>
+<li><a href="https://github.com/ReactiveX/RxSwift">RxSwift<span class="external-link"></span></a></li>
+<li><a href="https://qubitpi.github.io/languages.html">Others</a></li>
+
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Resources <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="https://qubitpi.github.io/tutorials.html">Tutorials</a></li>
+<!-- Uncomment only when ready
+<li><a href="https://qubitpi.github.io/releases.html">Releases and Binaries</a></li>
+<li><a href="#">Code samples</a></li>
+<li><a href="#">Presentations</a></li>
+<li><a href="#">Related Projects</a></li>
+<li><a href="#">Who uses Rx</a></li>
+ -->
+
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Community <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="https://github.com/ReactiveX">GitHub<span class="external-link"></span></a></li>
+<li><a href="https://twitter.com/ReactiveX">Twitter<span class="external-link"></span></a></li>
+<li><a href="https://qubitpi.github.io/community.html">Others</a></li>
+
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/js/jquery/1.11.0/jquery.min.js"></script>
+
+    <div class="site-content">
+      <style>
+/* make sidebar nav vertical */
+@media (min-width: 768px) {
+  .side-menu {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    max-height: none;
+    border: 1px solid #DDD;
+  }
+}
+</style>
+
+<div class="full-page-container">
+  <div class="row">
+    <div class="col-sm-8">
+      <p>#Getting Started</p>
+
+<h2 id="getting-binaries">Getting Binaries</h2>
+
+<p>You can find binaries and dependency information for Maven, Ivy, Gradle, SBT, and others at <a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.netflix.rxjava%22%20AND%20a%3A%22rxjava-core%22">http://search.maven.org</a>. You need Java 6 or later.</p>
+
+<div id="getting-binaries">
+  <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+    <li class="active"><a href="#maven" data-toggle="tab">Maven</a></li>
+    <li><a href="#ivy" data-toggle="tab">Ivy</a></li>
+    <li><a href="#sbt" data-toggle="tab">SBT</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="maven">
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.netflix.rxjava<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>rxjava-core<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.19.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span></code></pre></figure>
+
+
+If you need to download the jars instead of using a build system, create a Maven `pom` file like this with the desired version:
+
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.netflix.rxjava.download<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>rxjava-download<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;name&gt;</span>Simple POM to download rxjava-core and dependencies<span class="nt">&lt;/name&gt;</span>
+  <span class="nt">&lt;url&gt;</span>http://github.com/Netflix/RxJava<span class="nt">&lt;/url&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>com.netflix.rxjava<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>rxjava-core<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>0.17.0<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;scope/&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/project&gt;</span></code></pre></figure>
+
+
+Then execute:
+
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mvn <span class="nt">-f</span> download-rxjava-pom.xml dependency:copy-dependencies</code></pre></figure>
+
+
+That command downloads `rxjava-core-*.jar` and its dependencies into `./target/dependency/`.
+
+    </div>
+    <div class="tab-pane" id="ivy">
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency</span> <span class="na">org=</span><span class="s">"com.netflix.rxjava"</span> <span class="na">name=</span><span class="s">"rxjava-core"</span> <span class="na">rev=</span><span class="s">"0.17.0"</span> <span class="nt">/&gt;</span></code></pre></figure>
+
+    </div>
+    <div class="tab-pane" id="sbt">
+
+<figure class="highlight"><pre><code class="language-scala" data-lang="scala"><span class="n">libraryDependencies</span> <span class="o">+=</span> <span class="s">"com.netflix.rxjava"</span> <span class="o">%</span> <span class="s">"rxjava-scala"</span> <span class="o">%</span> <span class="s">"0.17.0"</span></code></pre></figure>
+
+    </div>
+  </div>
+</div>
+
+<h2 id="building-from-source">Building from source</h2>
+
+<p>To check out and build the RxJava source, issue the following commands:</p>
+
+<pre><code>$ git clone git@github.com:Netflix/RxJava.git
+$ cd RxJava/
+$ ./gradlew build
+</code></pre>
+
+<p>To do a clean build, issue the following command:</p>
+
+<pre><code>$ ./gradlew clean build
+</code></pre>
+
+<p>A build should look similar to this:</p>
+
+<pre><code>$ ./gradlew build
+:rxjava-core:compileJava
+:rxjava-core:processResources UP-TO-DATE
+:rxjava-core:classes
+:rxjava-core:jar
+:rxjava-core:sourcesJar
+:rxjava-core:signArchives SKIPPED
+:rxjava-core:assemble
+:rxjava-core:licenseMain UP-TO-DATE
+:rxjava-core:licenseTest UP-TO-DATE
+:rxjava-core:compileTestJava
+:rxjava-core:processTestResources UP-TO-DATE
+:rxjava-core:testClasses
+:rxjava-core:test
+:rxjava-core:check
+:rxjava-core:build
+
+BUILD SUCCESSFUL
+
+Total time: 30.758 secs
+</code></pre>
+
+<p>On a clean build you will see the unit tests run. They will look something like this:</p>
+
+<pre><code>&gt; Building &gt; :rxjava-core:test &gt; 91 tests completed
+</code></pre>
+
+<h1 id="hello-world">Hello World!</h1>
+
+<p>The following sample implementations of “Hello World” in Java, Groovy, Clojure, and Scala create an Observable from a list of Strings, and then subscribe to this Observable with a method that prints “Hello <em>String</em>!” for each string emitted by the Observable.</p>
+
+<p>You can find additional code examples in the <code>/src/examples</code> folders of each <a href="https://github.com/Netflix/RxJava/tree/master/language-adaptors">language adaptor</a>:</p>
+
+<ul>
+  <li><a href="https://github.com/Netflix/RxJava/tree/master/language-adaptors/rxjava-groovy/src/examples">Groovy examples</a></li>
+  <li><a href="https://github.com/Netflix/RxJava/tree/master/language-adaptors/rxjava-clojure/src/examples">Clojure examples</a></li>
+  <li><a href="https://github.com/Netflix/RxJava/tree/master/language-adaptors/rxjava-scala/src/examples">Scala examples</a></li>
+</ul>
+
+<tabs-panel flex="">
+  <tab-code label="Java" language="java" url="https://api.github.com/repos/ReactiveX/reactivex.github.io/contents/examples/java/hello.java" url2="https://api.github.com/repos/ReactiveX/reactivex.github.io/contents/examples/java/hello.output"></tab-code>
+  <tab-code label="Scala" language="scala" url="https://api.github.com/repos/GeorgiKhomeriki/RxJava/contents/language-adaptors/rxjava-scala/src/examples/reactivex/getting-started/hello.scala" url2="https://api.github.com/repos/GeorgiKhomeriki/RxJava/contents/language-adaptors/rxjava-scala/src/examples/reactivex/getting-started/hello.output"></tab-code>
+  <tab-code label="Groovy" language="groovy" url="https://api.github.com/repos/ReactiveX/reactivex.github.io/contents/examples/groovy/hello.groovy" url2="https://api.github.com/repos/ReactiveX/reactivex.github.io/contents/examples/groovy/hello.output"></tab-code>
+  <tab-code label="Clojure" language="clojure" url="https://api.github.com/repos/ReactiveX/reactivex.github.io/contents/examples/clojure/hello.clj" url2="https://api.github.com/repos/ReactiveX/reactivex.github.io/contents/examples/clojure/hello.output"></tab-code>
+  <tab-code label="Kotlin" language="" url=""></tab-code>
+  <tab-code label="JRuby" language="" url=""></tab-code>
+</tabs-panel>
+
+<h1 id="larger-example">Larger example</h1>
+
+<p>To use RxJava you create Observables (which emit data items), transform those Observables in various ways to get the precise data items that interest you (by using Observable operators), and then observe and react to these sequences of interesting items (by implementing Observers or Subscribers and then subscribing them to the resulting transformed Observables).</p>
+
+<h2 id="creating-observables">Creating Observables</h2>
+
+<p>To create an Observable, you can either implement the Observable’s behavior manually by passing a function to <a href="Creating-Observables#create"><code>create( )</code></a> that exhibits Observable behavior, or you can convert an existing data structure into an Observable by using <a href="Creating-Observables">some of the Observable operators that are designed for this purpose</a>.</p>
+
+<h3 id="creating-an-observable-from-an-existing-data-structures">Creating an Observable from an Existing Data Structures</h3>
+
+<p>You use the Observable <a href="Creating-Observables#just"><code>just( )</code></a> and <a href="Creating-Observables#from"><code>from( )</code></a> methods to convert objects, lists, or arrays of objects into Observables that emit those objects:</p>
+
+<pre><code class="language-groovy">Observable&lt;String&gt; o = Observable.from("a", "b", "c");
+
+def list = [5, 6, 7, 8]
+Observable&lt;Integer&gt; o = Observable.from(list);
+
+Observable&lt;String&gt; o = Observable.just("one object");
+</code></pre>
+
+<p>These converted Observables will synchronously invoke the <a href="Observable#onnext-oncompleted-and-onerror"><code>onNext( )</code></a> method of any subscriber that subscribes to them, for each item to be emitted by the Observable, and will then invoke the subscriber’s <a href="Observable#onnext-oncompleted-and-onerror"><code>onCompleted( )</code></a> method.</p>
+
+<h3 id="creating-an-observable-via-the-create-method">Creating an Observable via the <code>create( )</code> method</h3>
+
+<p>You can implement asynchronous i/o, computational operations, or even “infinite” streams of data by designing your own Observable and implementing it with the <a href="Creating-Observables#create"><code>create( )</code></a> method.</p>
+
+<h4 id="synchronous-observable-example">Synchronous Observable Example</h4>
+
+<pre><code class="language-groovy">/**
+ * This example shows a custom Observable that blocks 
+ * when subscribed to (does not spawn an extra thread).
+ */
+def customObservableBlocking() {
+    return Observable.create({ aSubscriber -&gt;
+        for (int i=0; i&lt;50; i++) {
+            if (false == aSubscriber.isUnsubscribed()) {
+                aSubscriber.onNext("value_" + i);
+            };
+        }
+        // after sending all values we complete the sequence
+        if (false == aSubscriber.isUnsubscribed()) {
+            aSubscriber.onCompleted();
+        }
+    });
+}
+
+// To see output:
+customObservableBlocking().subscribe({ it -&gt; println(it); });
+</code></pre>
+
+<h4 id="asynchronous-observable-example">Asynchronous Observable Example</h4>
+
+<p>The following example uses Groovy to create an Observable that emits 75 strings.</p>
+
+<p>It is written verbosely, with static typing and implementation of the <code>Func1</code> anonymous inner class, to make the example more clear:</p>
+
+<pre><code class="language-groovy">/**
+ * This example shows a custom Observable that does not block
+ * when subscribed to as it spawns a separate thread.
+ */
+def customObservableNonBlocking() {
+    return Observable.create(
+        /*
+         * This 'call' method will be invoked with the Observable is subscribed to.
+         * 
+         * It spawns a thread to do it asynchronously.
+         */
+         { subscriber -&gt;
+            // For simplicity this example uses a Thread instead of an ExecutorService/ThreadPool
+            final Thread t = new Thread(new Runnable() {
+                void run() {
+                    for (int i=0; i&lt;75; i++) {
+                        if (true == subscriber.isUnsubscribed()) {
+                            return;
+                        }
+                        subscriber.onNext("value_" + i);
+                    }
+                    // after sending all values we complete the sequence
+                    if (false == subscriber.isUnsubscribed()) {
+                        subscriber.onCompleted();
+                    }
+                };
+            });
+            t.start();
+        }
+    );
+}
+
+// To see output:
+customObservableNonBlocking().subscribe({ println(it) });
+</code></pre>
+
+<p>Here is the same code in Clojure that uses a Future (instead of raw thread) and is implemented more consisely:</p>
+
+<pre><code class="language-clojure">(defn customObservableNonBlocking []
+  "This example shows a custom Observable that does not block 
+   when subscribed to as it spawns a separate thread.
+   
+  returns Observable&lt;String&gt;"
+  (Observable/create 
+    (fn [subscriber]
+      (let [f (future 
+                (doseq [x (range 50)] (-&gt; subscriber (.onNext (str "value_" x))))
+                ; after sending all values we complete the sequence
+                (-&gt; subscriber .onCompleted))
+        ))
+      ))
+</code></pre>
+
+<pre><code class="language-clojure">; To see output
+(.subscribe (customObservableNonBlocking) #(println %))
+</code></pre>
+
+<p>Here is an example that fetches articles from Wikipedia and invokes onNext with each one:</p>
+
+<pre><code class="language-clojure">(defn fetchWikipediaArticleAsynchronously [wikipediaArticleNames]
+  "Fetch a list of Wikipedia articles asynchronously.
+  
+   return Observable&lt;String&gt; of HTML"
+  (Observable/create 
+    (fn [subscriber]
+      (let [f (future
+                (doseq [articleName wikipediaArticleNames]
+                  (-&gt; subscriber (.onNext (http/get (str "http://en.wikipedia.org/wiki/" articleName)))))
+                ; after sending response to onnext we complete the sequence
+                (-&gt; subscriber .onCompleted))
+        ))))
+</code></pre>
+
+<pre><code class="language-clojure">(-&gt; (fetchWikipediaArticleAsynchronously ["Tiger" "Elephant"]) 
+  (.subscribe #(println "--- Article ---\n" (subs (:body %) 0 125) "...")))
+</code></pre>
+
+<p>Back to Groovy, the same Wikipedia functionality but using closures instead of anonymous inner classes:</p>
+
+<pre><code class="language-groovy">/*
+ * Fetch a list of Wikipedia articles asynchronously.
+ */
+def fetchWikipediaArticleAsynchronously(String... wikipediaArticleNames) {
+    return Observable.create({ subscriber -&gt;
+        Thread.start( {
+            for (articleName in wikipediaArticleNames) {
+                if (true == subscriber.isUnsubscribed()) {
+                    return;
+                }
+                subscriber.onNext(new URL("http://en.wikipedia.org/wiki/"+articleName).getText());
+            }
+            if (false == subscriber.isUnsubscribed()) {
+                subscriber.onCompleted();
+            }
+        } );
+        return( subscriber );
+    });
+}
+
+fetchWikipediaArticleAsynchronously("Tiger", "Elephant")
+    .subscribe({ println "--- Article ---\n" + it.substring(0, 125); });
+</code></pre>
+
+<p>Results:</p>
+
+<pre><code class="language-text">--- Article ---
+ &lt;!DOCTYPE html&gt;
+&lt;html lang="en" dir="ltr" class="client-nojs"&gt;
+&lt;head&gt;
+&lt;title&gt;Tiger - Wikipedia, the free encyclopedia&lt;/title&gt; ...
+--- Article ---
+ &lt;!DOCTYPE html&gt;
+&lt;html lang="en" dir="ltr" class="client-nojs"&gt;
+&lt;head&gt;
+&lt;title&gt;Elephant - Wikipedia, the free encyclopedia&lt;/tit ...
+</code></pre>
+
+<p>Note that all of the above examples ignore error handling, for brevity. See below for examples that include error handling.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>More information can be found on the [[Observable]] and [[Creating Observables</td>
+      <td>Creating-Observables]] pages.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="transforming-observables-with-operators">Transforming Observables with Operators</h2>
+
+<p>Rx allows you to chain <em>operators</em> together to transform and compose Observables.</p>
+
+<p>The following example, in Groovy, uses a previously defined, asynchronous Observable that emits 75 items, skips over the first 10 of these (<a href="Filtering-Observables#wiki-skip"><code>skip(10)</code></a>), then takes the next 5 (<a href="Filtering-Observables#wiki-take"><code>take(5)</code></a>), and transforms them (<a href="Transforming-Observables#wiki-map"><code>map(...)</code></a>) before subscribing and printing the items:</p>
+
+<pre><code class="language-groovy">/**
+ * Asynchronously calls 'customObservableNonBlocking' and defines
+ * a chain of operators to apply to the callback sequence.
+ */
+def simpleComposition() {
+    customObservableNonBlocking().skip(10).take(5)
+        .map({ stringValue -&gt; return stringValue + "_xform"})
+        .subscribe({ println "onNext =&gt; " + it})
+}
+</code></pre>
+
+<p>This results in:</p>
+
+<pre><code class="language-text">onNext =&gt; value_10_xform
+onNext =&gt; value_11_xform
+onNext =&gt; value_12_xform
+onNext =&gt; value_13_xform
+onNext =&gt; value_14_xform
+</code></pre>
+
+<p>Here is a marble diagram that illustrates this transformation:</p>
+
+<p><img src="https://qubitpi.github.io/assets/operators/Composition.1.png" width="640" height="536" /></p>
+
+<p>This next example, in Clojure, consumes three asynchronous Observables, including a dependency from one to another, and emits a single response item by combining the items emitted by each of the three Observables with the <a href="Combining-Observables#zip"><code>zip</code></a> operator and then transforming the result with <a href="Transforming-Observables#wiki-map"><code>map</code></a>:</p>
+
+<pre><code class="language-clojure">(defn getVideoForUser [userId videoId]
+  "Get video metadata for a given userId
+   - video metadata
+   - video bookmark position
+   - user data
+  return Observable&lt;Map&gt;"
+    (let [user-observable (-&gt; (getUser userId)
+              (.map (fn [user] {:user-name (:name user) :language (:preferred-language user)})))
+          bookmark-observable (-&gt; (getVideoBookmark userId videoId)
+              (.map (fn [bookmark] {:viewed-position (:position bookmark)})))
+          ; getVideoMetadata requires :language from user-observable so nest inside map function
+          video-metadata-observable (-&gt; user-observable 
+              (.mapMany
+                ; fetch metadata after a response from user-observable is received
+                (fn [user-map] 
+                  (getVideoMetadata videoId (:language user-map)))))]
+          ; now combine 3 observables using zip
+          (-&gt; (Observable/zip bookmark-observable video-metadata-observable user-observable 
+                (fn [bookmark-map metadata-map user-map]
+                  {:bookmark-map bookmark-map 
+                  :metadata-map metadata-map
+                  :user-map user-map}))
+            ; and transform into a single response object
+            (.map (fn [data]
+                  {:video-id videoId
+                   :video-metadata (:metadata-map data)
+                   :user-id userId
+                   :language (:language (:user-map data))
+                   :bookmark (:viewed-position (:bookmark-map data))
+                  })))))
+</code></pre>
+
+<p>The response looks like this:</p>
+
+<pre><code class="language-clojure">{:video-id 78965, 
+ :video-metadata {:video-id 78965, :title House of Cards: Episode 1, 
+                  :director David Fincher, :duration 3365}, 
+ :user-id 12345, :language es-us, :bookmark 0}
+</code></pre>
+
+<p>And here is a marble diagram that illustrates how that code produces that response:</p>
+
+<p><img src="https://qubitpi.github.io/assets/operators/Composition.2.png" width="640" height="742" /></p>
+
+<p>The following example, in Groovy, comes from <a href="https://speakerdeck.com/benjchristensen/evolution-of-the-netflix-api-qcon-sf-2013">Ben Christensen’s QCon presentation on the evolution of the Netflix API</a>. It combines two Observables with the <a href="Combining-Observables#wiki-merge"><code>merge</code></a> operator, then uses the <a href="Mathematical-and-Aggregate-Operators#wiki-reduce"><code>reduce</code></a> operator to construct a single item out of the resulting sequence, then transforms that item with <a href="Transforming-Observables#wiki-map"><code>map</code></a> before emitting it:</p>
+
+<pre><code class="language-groovy">public Observable getVideoSummary(APIVideo video) {
+   def seed = [id:video.id, title:video.getTitle()];
+   def bookmarkObservable = getBookmark(video);
+   def artworkObservable = getArtworkImageUrl(video);
+   return( Observable.merge(bookmarkObservable, artworkObservable)
+      .reduce(seed, { aggregate, current -&gt; aggregate &lt;&lt; current })
+      .map({ [(video.id.toString() : it] }))
+}
+</code></pre>
+
+<p>And here is a marble diagram that illustrates how that code uses the <a href="Mathematical-and-Aggregate-Operators#wiki-reduce"><code>reduce</code></a> operator to bring the results from multiple Observables together in one structure:</p>
+
+<p><img src="https://qubitpi.github.io/assets/operators/Composition.3.png" width="640" height="640" /></p>
+
+<h2 id="error-handling">Error Handling</h2>
+
+<p>Here is a version of the Wikipedia example from above revised to include error handling:</p>
+
+<pre><code class="language-groovy">/*
+ * Fetch a list of Wikipedia articles asynchronously, with error handling.
+ */
+def fetchWikipediaArticleAsynchronouslyWithErrorHandling(String... wikipediaArticleNames) {
+    return Observable.create({ subscriber -&gt;
+        Thread.start {
+            try {
+                for (articleName in wikipediaArticleNames) {
+                    if (true == subscriber.isUnsubscribed()) {
+                        return;
+                    }
+                    subscriber.onNext(new URL("http://en.wikipedia.org/wiki/"+articleName).getText());
+                }
+                if (false == subscriber.isUnsubscribed()) {
+                    subscriber.onCompleted();
+                }
+            } catch(Throwable t) {
+                if (false == subscriber.isUnsubscribed()) {
+                    subscriber.onError(t);
+                }
+            }
+            return (subscriber);
+        }
+    });
+}
+</code></pre>
+
+<p>Notice how it now invokes <a href="Observable#onnext-oncompleted-and-onerror"><code>onError(Throwable t)</code></a> if an error occurs and note that the following code passes <code>subscribe()</code> a second method that handles <code>onError</code>:</p>
+
+<pre><code class="language-groovy">fetchWikipediaArticleAsynchronouslyWithErrorHandling("Tiger", "NonExistentTitle", "Elephant")
+    .subscribe(
+        { println "--- Article ---\n" + it.substring(0, 125) }, 
+        { println "--- Error ---\n" + it.getMessage() })
+</code></pre>
+
+<p>See the <a href="Observable-Utility-Operators">Observable Utility Operators</a> page for more information on specialized error handling techniques in RxJava, including methods like <a href="Observable-Utility-Operators#onerrorresumenext"><code>onErrorResumeNext()</code></a> and [<code>onErrorReturn()</code>]](Observable-Utility-Operators#onerrorreturn) that allow Observables to continue with fallbacks in the event that they encounter errors.</p>
+
+<p>Here is an example of how you can use such a method to pass along custom information about any exceptions you encounter. Imagine you have an Observable or cascade of Observables — <code>myObservable</code> — and you want to intercept any exceptions that would normally pass through to an Subscriber’s <code>onError</code> method, replacing these with a customized Throwable of your own design. You could do this by modifying <code>myObservable</code> with the <a href="Observable-Utility-Operators#onerrorresumenext"><code>onErrorResumeNext()</code></a> method, and passing into that method an Observable that calls <code>onError</code> with your customized Throwable (a utility method called <a href="Creating-Observables#wiki-empty-error-and-never"><code>error()</code></a> will generate such an Observable for you):</p>
+
+<pre><code class="language-groovy">myModifiedObservable = myObservable.onErrorResumeNext({ t -&gt;
+   Throwable myThrowable = myCustomizedThrowableCreator(t);
+   return (Observable.error(myThrowable));
+});
+</code></pre>
+
+    </div>
+    <div class="col-sm-4">
+      <ul class="side-menu">
+        <li><a href="https://qubitpi.github.io/documentation/cn.html">简体中文</a></li>
+        <li><a href="https://qubitpi.github.io/documentation/ko.html">한국어</a></li>
+        <li><a href="https://qubitpi.github.io/documentation.html">English</a></li>
+      </ul>
+
+      <ul class="side-menu">
+        
+        <li><a href="https://qubitpi.github.io/documentation/observable.html">Observable</a></li>
+        <li><a href="https://qubitpi.github.io/documentation/operators.html">Operators</a></li>
+        <li><a href="https://qubitpi.github.io/documentation/single.html">Single</a></li>
+        <li><a href="https://qubitpi.github.io/documentation/subject.html">Subject</a></li>
+        <li><a href="https://qubitpi.github.io/documentation/scheduler.html">Scheduler</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <footer>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-3">
+            <ul class="footer-section">
+              <li><h4>Documentation</h4></li>
+              <li><a href="https://qubitpi.github.io/documentation/observable.html">Observable</a></li>
+<li><a href="https://qubitpi.github.io/documentation/operators.html">Operators</a></li>
+<li><a href="https://qubitpi.github.io/documentation/single.html">Single</a></li>
+<li><a href="https://qubitpi.github.io/documentation/subject.html">Subject</a></li>
+<li><a href="https://qubitpi.github.io/documentation/scheduler.html">Scheduler</a></li>
+
+            </ul>
+          </div>
+
+          <div class="col-sm-3">
+            <ul class="footer-section">
+              <li><h4>Languages</h4></li>
+              <li><a href="https://github.com/ReactiveX/RxJava">RxJava<span class="external-link"></span></a></li>
+<li><a href="https://github.com/ReactiveX/rxjs">RxJS<span class="external-link"></span></a></li>
+<li><a href="https://github.com/Reactive-Extensions/Rx.NET">Rx.NET<span class="external-link"></span></a></li>
+<li><a href="https://qubitpi.github.io/rxscala">RxScala</a></li>
+<li><a href="https://github.com/ReactiveX/RxClojure">RxClojure<span class="external-link"></span></a></li>
+<li><a href="https://github.com/ReactiveX/RxSwift">RxSwift<span class="external-link"></span></a></li>
+<li><a href="https://qubitpi.github.io/languages.html">Others</a></li>
+
+            </ul>
+          </div>
+
+          <div class="col-sm-3">
+            <ul class="footer-section">
+              <li><h4>Resources</h4></li>
+              <li><a href="https://qubitpi.github.io/tutorials.html">Tutorials</a></li>
+<!-- Uncomment only when ready
+<li><a href="https://qubitpi.github.io/releases.html">Releases and Binaries</a></li>
+<li><a href="#">Code samples</a></li>
+<li><a href="#">Presentations</a></li>
+<li><a href="#">Related Projects</a></li>
+<li><a href="#">Who uses Rx</a></li>
+ -->
+
+            </ul>
+          </div>
+
+          <div class="col-sm-3">
+            <ul class="footer-section">
+              <li><h4>Community</h4></li>
+              <li><a href="https://github.com/ReactiveX">GitHub<span class="external-link"></span></a></li>
+<li><a href="https://twitter.com/ReactiveX">Twitter<span class="external-link"></span></a></li>
+<li><a href="https://qubitpi.github.io/community.html">Others</a></li>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 disclaimer">
+            <img class="footer-logo" src="https://qubitpi.github.io/assets/Rx_Logo_BW_S.png" alt="" />
+            <a href="https://qubitpi.github.io">ReactiveX<span class="external-link"></span></a> is a collection of open source projects. The content of this
+            page is licensed under Creative Commons Attribution 3.0 License, and
+            code samples are licensed under the BSD License.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- back to top link -->
+    <span id="top-link-block" class="hidden">
+        <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+            <i class="glyphicon glyphicon-chevron-up"></i>
+        </a>
+    </span>
+
+    <!-- Activate current page menu button -->
+    <script>$("#menu-documentation").addClass("active");</script>
+
+    <!-- Polymer Paper Tabs -->
+    <link rel="import" href="/polymer/components/paper-tabs/paper-tabs.html" />
+    <!-- Polymer Code Snippet Element-->
+    <link rel="import" href="/polymer/elements/code-snippet.html" />
+    <link rel="import" href="/polymer/elements/tabs-panel.html" />
+    <link rel="import" href="/polymer/elements/tab-code.html" />
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- Prism -->
+    <script src="/js/prism.js"></script>
+    <script src="/js/prism.clojure.js"></script>
+    <!-- Google Closure -->
+    <script src="/js/goog/base.js"></script>
+
+    <script>
+        goog.require('goog.html.SafeHtml');
+    </script>
+
+    <script>
+        /* Dynamic "Back to top" link */
+        if ( ($(window).height() + 100) < $(document).height() ) {
+            $('#top-link-block').removeClass('hidden').affix({
+                offset: {top:100}
+            });
+        }
+    </script>
+
+  </body>
+</html>
