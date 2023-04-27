@@ -20,10 +20,10 @@ $ gem install jekyll uglifier rake
 $ npm install -g less
 ```
 
-Run
----
+Build GitHub Pages Deployable
+-----------------------------
 
-Rake's default task will compile styles the run `jekyll serve`.
+Rake's default task will generate the website under `_site`, which contains the root `index.html`
 
 ```
 $ rake

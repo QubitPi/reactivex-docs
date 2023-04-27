@@ -5,8 +5,8 @@ id: refcount
 ---
 
 <ol class="breadcrumb">
-  <li><a href="{{ site.url }}/documentation/operators.html">Operators</a></li>
-  <li><a href="{{ site.url }}/documentation/operators.html#connectable">Connectable</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html">Operators</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html#connectable">Connectable</a></li>
   <li class="active">RefCount</li>
 </ol>
 
@@ -23,7 +23,7 @@ id: refcount
  </p><p>
   The <span class="operator">RefCount</span> operator automates the process of connecting to and disconnecting
   from a connectable Observable. It operates on a connectable Observable and returns an ordinary Observable.
-  When the first observer subscribes to this Observable, <span class="operator">RefCount</span> connects to the 
+  When the first observer subscribes to this Observable, <span class="operator">RefCount</span> connects to the
   underlying connectable Observable. <span class="operator">RefCount</span> then keeps track of how many other
   observers subscribe to it and does not disconnect from the underlying connectable Observable until the last
   observer has done so.

@@ -1,6 +1,6 @@
 BOOTSTRAP_SOURCE = File.expand_path("./bootstrap")
 LESS_MAIN_FILE = './styles/reactivex.less'
-bootstrap_js_parts = ['transition', 'alert', 'button', 'carousel', 
+bootstrap_js_parts = ['transition', 'alert', 'button', 'carousel',
   'collapse', 'dropdown', 'modal', 'tooltip', 'popover', 'scrollspy',
   'tab', 'affix']
 bootstrap_js_files = bootstrap_js_parts.map do |name|
@@ -54,10 +54,14 @@ task :bootstrap_css do |t|
   sh 'lessc', '--compress', LESS_MAIN_FILE, 'css/bootstrap.min.css'
 end
 
-task :default => :jekyll
+task :default => :jekyll_build
 
 task :jekyll => :bootstrap do
   sh 'jekyll serve --watch'
+end
+
+task :jekyll_build => :bootstrap do
+  sh 'jekyll build'
 end
 
 def different?(path1, path2)

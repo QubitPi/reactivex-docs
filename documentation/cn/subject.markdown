@@ -27,13 +27,13 @@ id: subject
 </p>
 <h3>AsyncSubject</h3>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.AsyncSubject.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.AsyncSubject.png" style="width:100%;" />
  <figcaption><p>
   一个<code>AsyncSubject</code>只在源事件源完成后，发出来自源事件源的最后一个事件。它会把这最后一个事件发出给任何后续的观察者（如果源事件源没有发出任何事件，<code>AsyncSubject</code> 也不发出任何事件）。
  </p></figcaption>
 </figure>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.AsyncSubject.e.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.AsyncSubject.e.png" style="width:100%;" />
  <figcaption><p>
  然而，如果源事件源因为发生了错误而终止，<code>AsyncSubject</code>将不会发出任何事件，只是简单的传递这个错误通知。
  </p></figcaption>
@@ -44,13 +44,13 @@ id: subject
 </ul>
 <h3>BehaviorSubject</h3>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.BehaviorSubject.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.BehaviorSubject.png" style="width:100%;" />
  <figcaption><p>
   当观察者订阅<code>BehaviorSubject</code>时，它开始发出源事件源最近发出的事件（如果此时还没有收到任何事件，它会发出一个默认值），然后继续发出其它任何来自源事件源的事件。
  </p></figcaption>
 </figure>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.BehaviorSubject.e.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.BehaviorSubject.e.png" style="width:100%;" />
  <figcaption><p>
   然而，如果源事件源因为发生了一个错误而终止，<code>BehaviorSubject</code> 将不会发出任何事件，只是简单的传递这个错误通知。
  </p></figcaption>
@@ -61,7 +61,7 @@ id: subject
 </ul>
 <h3>PublishSubject</h3>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.PublishSubject.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.PublishSubject.png" style="width:100%;" />
  <figcaption><p>
   <code>PublishSubject</code>只会把来自源事件源的在订阅发生的时间点之后事件发出给观察者。
  </p><p>
@@ -69,14 +69,14 @@ id: subject
  </p></figcaption>
 </figure>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.PublishSubject.e.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.PublishSubject.e.png" style="width:100%;" />
  <figcaption><p>
   如果源事件源因为发生了一个错误而终止，<code>PublishSubject</code>将不会发出任何事件，只是简单的传递这个错误通知。
  </p></figcaption>
 </figure>
 <h3>ReplaySubject</h3>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.ReplaySubject.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.ReplaySubject.png" style="width:100%;" />
  <figcaption><p>
   <code>ReplaySubject</code>会发出所有来自源事件源的事件给观察者，无论它们是何时订阅的。
  </p><p>

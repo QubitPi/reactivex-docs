@@ -5,8 +5,8 @@ id: publish
 ---
 
 <ol class="breadcrumb">
-  <li><a href="{{ site.url }}/documentation/operators.html">Operators</a></li>
-  <li><a href="{{ site.url }}/documentation/operators.html#connectable">Connectable</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html">Operators</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html#connectable">Connectable</a></li>
   <li class="active">Publish</li>
 </ol>
 
@@ -85,7 +85,7 @@ id: publish
     <figure class="variant">
      <img src="images/publishConnect.f.png" style="width:100%;" alt="publish" />
      <figcaption><p>
-      There is also a variant that takes a function as a parameter. This function takes as a parameter 
+      There is also a variant that takes a function as a parameter. This function takes as a parameter
       the <code>ConnectableObservable</code> that shares a single subscription to the underlying Observable sequence.
       This function produces and returns a new Observable sequence.
      </p>

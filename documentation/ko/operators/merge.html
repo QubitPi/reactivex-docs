@@ -5,8 +5,8 @@ id: merge
 ---
 
 <ol class="breadcrumb">
-  <li><a href="{{ site.url }}/documentation/operators.html">Operators</a></li>
-  <li><a href="{{ site.url }}/documentation/operators.html#combining">Combining</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html">Operators</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html#combining">Combining</a></li>
   <li class="active">Merge</li>
 </ol>
 
@@ -277,7 +277,7 @@ Sequence complete.</pre></div>
       </ul></figcaption>
      </figure>
      <p>
-      The instance version of <code>merge</code> is <code>mergeWith</code>, so, for example, 
+      The instance version of <code>merge</code> is <code>mergeWith</code>, so, for example,
       instead of writing <code>Observable.merge(odds,evens)</code> you could also write
       <code>odds.mergeWith(evens)</code>.
      </p><p>
@@ -594,7 +594,7 @@ Complete!
 
   {% lang_operator RxPY merge merge_all merge_observable %}
      <p>
-      RxPY implements this operator as <code>merge</code> and 
+      RxPY implements this operator as <code>merge</code> and
       <code>merge_all</code>/<code>merge_observable</code>.
      </p>
      <figure>

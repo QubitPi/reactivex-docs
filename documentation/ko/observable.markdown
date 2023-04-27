@@ -18,7 +18,7 @@ id: observable
  <figcaption>
   <p>이 문서는 &ldquo;마블 다이어그램&rdquo;을 활용해서 관련 내용을 설명한다. 아래는 마블 다이어그램이 어떻게 Observable과 Observable의 전환을 표현하는지 보여준다.</p>
  </figcaption>
- <img src="{{ site.url }}/assets/operators/legend.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/operators/legend.png" style="width:100%;" />
 </figure>
 <h4>참고</h4>
 <ul>

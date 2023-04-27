@@ -27,7 +27,7 @@ id: subject
 </p>
 <h3>AsyncSubject</h3>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.AsyncSubject.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.AsyncSubject.png" style="width:100%;" />
  <figcaption>
  <p>
   <code>AsyncSubject</code>는 소스 Observable로부터 배출된 마지막 값(만)을 배출하고 소스 Observable의 동작이 완료된 후에야 동작한다. (만약, 소스 Observable이 아무 값도 배출하지 않으면 <code>AsyncSubject</code> 역시 아무 값도 배출하지 않는다.)
@@ -35,7 +35,7 @@ id: subject
 </figcaption>
 </figure>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.AsyncSubject.e.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.AsyncSubject.e.png" style="width:100%;" />
  <figcaption>
  <p>
   또한 <code>AsyncSubject</code>는 맨 마지막 값을 뒤 이어 오는 옵저버에 전달하는데, 만약 소스 Observable이 오류로 인해 종료될 경우 <code>AsyncSubject</code>는 아무 항목도 배출하지 않고 발생한 오류를 그대로 전달한다.
@@ -47,14 +47,14 @@ id: subject
 </ul>
 <h3>BehaviorSubject</h3>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.BehaviorSubject.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.BehaviorSubject.png" style="width:100%;" />
  <figcaption>
  <p>
   옵저버가 <code>BehaviorSubject</code>를 구독하기 시작하면, 옵저버는 소스 Observable이 가장 최근에 발행한 항목(또는 아직 아무 값도 발행되지 않았다면 맨 처음 값이나 기본 값)의 발행을 시작하며 그 이후 소스 Observable(들)에 의해 발행된 항목들을 계속 발행한다.
  </p></figcaption>
 </figure>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.BehaviorSubject.e.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.BehaviorSubject.e.png" style="width:100%;" />
  <figcaption>
  <p>
   만약, 소스 Observable이 오류 때문에 종료되면 <code>BehaviorSubject</code>는 아무런 항목도 배출하지 않고 소스 Observable에서 발생한 오류를 그대로 전달한다.
@@ -66,7 +66,7 @@ id: subject
 </ul>
 <h3>PublishSubject</h3>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.PublishSubject.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.PublishSubject.png" style="width:100%;" />
  <figcaption>
  <p>
   <code>PublishSubject</code>는 구독 이후에 소스 Observable(들)이 배출한 항목들만 옵저버에게 배출한다.
@@ -77,7 +77,7 @@ id: subject
  </figcaption>
 </figure>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.PublishSubject.e.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.PublishSubject.e.png" style="width:100%;" />
  <figcaption>
  <p>
   만약, 소스 Observable이 오류 때문에 종료되면 <code>PublishSubject</code>는 아무런 항목도 배출하지 않고 소스 Observable에서 발생한 오류를 그대로 전달한다.
@@ -85,7 +85,7 @@ id: subject
 </figure>
 <h3>ReplaySubject</h3>
 <figure>
- <img src="{{ site.url }}/documentation/operators/images/S.ReplaySubject.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/documentation/operators/images/S.ReplaySubject.png" style="width:100%;" />
  <figcaption>
  <p>
   <code>ReplaySubject</code>는 옵저버가 구독을 시작한 시점과 관계 없이 소스 Observable(들)이 배출한 모든 항목들을 모든 옵저버에게 배출한다.
