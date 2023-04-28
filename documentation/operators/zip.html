@@ -5,8 +5,8 @@ id: zip
 ---
 
 <ol class="breadcrumb">
-  <li><a href="{{ site.url }}/documentation/operators.html">Operators</a></li>
-  <li><a href="{{ site.url }}/documentation/operators.html#combining">Combining</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html">Operators</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html#combining">Combining</a></li>
   <li class="active">Zip</li>
 </ol>
 
@@ -36,7 +36,7 @@ id: zip
     <li><a href="http://rxmarbles.com/#zip">RxMarbles: <code>zip</code></a></li>
     <li><a href="http://rxwiki.wikidot.com/101samples#toc49"><cite>101 Rx Samples</cite>: Zip</a></li>
    </ul>
- 
+
    <h2>Language-Specific Information:</h2>
 <div class="panel-group operators-by-language" id="accordion" role="tablist" aria-multiselectable="true">
 
@@ -237,7 +237,7 @@ var range = Rx.Observable.range(0, 5);
 
 var source = Rx.Observable.zipArray(
     range,
-    range.skip(1), 
+    range.skip(1),
     range.skip(2)
 );
 
@@ -246,10 +246,10 @@ var subscription = source.subscribe(
         console.log('Next: ' + x);
     },
     function (err) {
-        console.log('Error: ' + err);   
+        console.log('Error: ' + err);
     },
     function () {
-        console.log('Completed');   
+        console.log('Completed');
     });</pre></div>
        <div class="output"><pre>
 Next: [0,1,2]

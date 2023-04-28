@@ -13,7 +13,7 @@ id: observable
 </p>
 <figure>
  <figcaption><p>本文档附有”弹珠图“（marble diagrams）进行说明。 下图是弹珠图如何表示事件源和转换事件源：</p></figcaption>
- <img src="{{ site.url }}/assets/operators/legend.png" style="width:100%;" />
+ <img src="{{ site.url }}{{ site.baseurl }}/assets/operators/legend.png" style="width:100%;" />
 </figure>
 <h4>参考</h4>
 <ul>

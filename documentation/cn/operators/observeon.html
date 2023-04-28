@@ -5,8 +5,8 @@ id: observeOn
 ---
 
 <ol class="breadcrumb">
-  <li><a href="{{ site.url }}/documentation/operators.html">Operators</a></li>
-  <li><a href="{{ site.url }}/documentation/operators.html#utility">Utility</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html">Operators</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html#utility">Utility</a></li>
   <li class="active">ObserveOn</li>
 </ol>
 
@@ -47,7 +47,7 @@ id: observeOn
   As shown in this illustration, the <span class="operator">SubscribeOn</span> operator designates which thread
   the Observable will begin operating on, no matter at what point in the chain of operators that operator is
   called.  <span class="operator">ObserveOn</span>, on the other hand, affects the thread that the Observable
-  will use <em>below</em> where that operator appears.  For this reason, you may call 
+  will use <em>below</em> where that operator appears.  For this reason, you may call
   <span class="operator">ObserveOn</span> multiple times at various points during the chain of Observable
   operators in order to change on which threads certain of those operators operate.
  </p></figcaption>

@@ -5,8 +5,8 @@ id: window
 ---
 
 <ol class="breadcrumb">
-  <li><a href="{{ site.url }}/documentation/operators.html">Operators</a></li>
-  <li><a href="{{ site.url }}/documentation/operators.html#transforming">Transforming</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html">Operators</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html#transforming">Transforming</a></li>
   <li class="active">Window</li>
 </ol>
 
@@ -226,7 +226,7 @@ id: window
        <code>window</code> emits a series of non-overlapping windows whose collective emissions
        correspond one-to-one with those of the source Observable.
       </p><p>
-       If you do not specify a Scheduler, this variant of <code>window</code> uses the 
+       If you do not specify a Scheduler, this variant of <code>window</code> uses the
        <code>computation</code> Scheduler for its timer by default.
       </p>
       <ul>
@@ -248,7 +248,7 @@ id: window
        of non-overlapping windows whose collective emissions correspond one-to-one with those of the
        source Observable.
       </p><p>
-       If you do not specify a Scheduler, this variant of <code>window</code> uses the 
+       If you do not specify a Scheduler, this variant of <code>window</code> uses the
        <code>computation</code> Scheduler for its timer by default.
       </p>
       <ul>
@@ -269,7 +269,7 @@ id: window
        <code>timespan</code> and <code>timeshift</code> the windows that result from this operation
        may overlap or may have gaps.
       </p><p>
-       If you do not specify a Scheduler, this variant of <code>window</code> uses the 
+       If you do not specify a Scheduler, this variant of <code>window</code> uses the
        <code>computation</code> Scheduler for its timer by default.
       </p>
       <ul>
@@ -388,7 +388,7 @@ Observable&lt;Observable&lt;Integer&gt;&gt; burstyWindowed = bursty.window(5);</
        <code>window</code> emits a series of non-overlapping windows whose collective emissions
        correspond one-to-one with those of the source Observable.
       </p><p>
-       If you do not specify a Scheduler, this variant of <code>window</code> uses the 
+       If you do not specify a Scheduler, this variant of <code>window</code> uses the
        <code>computation</code> Scheduler for its timer by default.
       </p>
       <ul>
@@ -410,7 +410,7 @@ Observable&lt;Observable&lt;Integer&gt;&gt; burstyWindowed = bursty.window(5);</
        of non-overlapping windows whose collective emissions correspond one-to-one with those of the
        source Observable.
       </p><p>
-       If you do not specify a Scheduler, this variant of <code>window</code> uses the 
+       If you do not specify a Scheduler, this variant of <code>window</code> uses the
        <code>computation</code> Scheduler for its timer by default.
       </p>
       <ul>
@@ -431,7 +431,7 @@ Observable&lt;Observable&lt;Integer&gt;&gt; burstyWindowed = bursty.window(5);</
        <code>timespan</code> and <code>timeshift</code> the windows that result from this operation
        may overlap or may have gaps.
       </p><p>
-       If you do not specify a Scheduler, this variant of <code>window</code> uses the 
+       If you do not specify a Scheduler, this variant of <code>window</code> uses the
        <code>computation</code> Scheduler for its timer by default.
       </p>
       <ul>
@@ -547,7 +547,7 @@ Observable&lt;Observable&lt;Integer&gt;&gt; burstyWindowed = bursty.window(5);</
        series of non-overlapping windows whose collective emissions correspond one-to-one with those
        of the source Observable.
       </p><p>
-       If you do not specify a Scheduler, this variant of <code>windowWithTime</code> uses the 
+       If you do not specify a Scheduler, this variant of <code>windowWithTime</code> uses the
        <code>timeout</code> Scheduler for its timer by default.
       </p></figcaption>
      </figure>
@@ -564,7 +564,7 @@ Observable&lt;Observable&lt;Integer&gt;&gt; burstyWindowed = bursty.window(5);</
        <code>timeshift</code> the windows that result from this operation may overlap or may have
        gaps.
       </p><p>
-       If you do not specify a Scheduler, this variant of <code>windowWithTime</code> uses the 
+       If you do not specify a Scheduler, this variant of <code>windowWithTime</code> uses the
        <code>timeout</code> Scheduler for its timer by default.
       </p></figcaption>
      </figure>
@@ -657,7 +657,7 @@ Observable&lt;Observable&lt;Integer&gt;&gt; burstyWindowed = bursty.window(5);</
        <code>window</code> emits a series of non-overlapping windows whose collective emissions
        correspond one-to-one with those of the source Observable.
       </p><p>
-       If you do not specify a Scheduler, this variant of <code>window</code> uses the 
+       If you do not specify a Scheduler, this variant of <code>window</code> uses the
        <code>computation</code> Scheduler for its timer by default.
       </p></figcaption>
      </figure>
@@ -675,7 +675,7 @@ Observable&lt;Observable&lt;Integer&gt;&gt; burstyWindowed = bursty.window(5);</
        of non-overlapping windows whose collective emissions correspond one-to-one with those of the
        source Observable.
       </p><p>
-       If you do not specify a Scheduler, this variant of <code>window</code> uses the 
+       If you do not specify a Scheduler, this variant of <code>window</code> uses the
        <code>computation</code> Scheduler for its timer by default.
       </p></figcaption>
      </figure>
@@ -692,7 +692,7 @@ Observable&lt;Observable&lt;Integer&gt;&gt; burstyWindowed = bursty.window(5);</
        <code>timespan</code> and <code>timeshift</code> the windows that result from this operation
        may overlap or may have gaps.
       </p><p>
-       If you do not specify a Scheduler, this variant of <code>window</code> uses the 
+       If you do not specify a Scheduler, this variant of <code>window</code> uses the
        <code>computation</code> Scheduler for its timer by default.
       </p></figcaption>
      </figure>
@@ -890,7 +890,7 @@ Observable&lt;Observable&lt;Integer&gt;&gt; burstyWindowed = bursty.window(5);</
        a series of non-overlapping windows whose collective emissions correspond one-to-one with
        those of the source Observable.
       </p><p>
-       If you do not specify a Scheduler, this variant of <code>window_with_time</code> uses the 
+       If you do not specify a Scheduler, this variant of <code>window_with_time</code> uses the
        <code>timeout</code> Scheduler for its timer by default.
       </p></figcaption>
      </figure>

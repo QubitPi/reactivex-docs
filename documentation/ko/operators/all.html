@@ -5,8 +5,8 @@ id: all
 ---
 
 <ol class="breadcrumb">
-  <li><a href="{{ site.url }}/documentation/operators.html">Operators</a></li>
-  <li><a href="{{ site.url }}/documentation/operators.html#conditional">Conditional and Boolean</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html">Operators</a></li>
+  <li><a href="{{ site.url }}{{ site.baseurl }}/documentation/operators.html#conditional">Conditional and Boolean</a></li>
   <li class="active">All</li>
 </ol>
 
@@ -64,9 +64,9 @@ numbers.all({ 0 == (it % 2) }).subscribe({ println(it); });
 println("all positive?");
 numbers.all({ 0 &lt; it }).subscribe({ println(it); });</pre></div>
       <div class="output"><pre>
-all even? 
+all even?
 false
-all positive? 
+all positive?
 true</pre></div>
       <ul>
        <li>Javadoc: <a href="http://reactivex.io/RxJava/javadoc/rx/Observable.html#all(rx.functions.Func1)"><code>all(Func1)</code></a></li>
