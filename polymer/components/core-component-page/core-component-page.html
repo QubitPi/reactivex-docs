@@ -61,7 +61,7 @@ It's common in flexbox parlance to hear the terms _main axis_ and _cross axis_.
 For a horizontal layout the main axis is horizontal and the cross axis is vertical.
 These are exchanged for a vertical layout.
 
-To effect alignment in the main axis, use the `justify` attribute. The 
+To effect alignment in the main axis, use the `justify` attribute. The
 supported values are `start`, `center`, `end`, and `between`.
 
 To effect alignment in the cross axis, use the `align` attribute. The
@@ -69,12 +69,12 @@ supported values are `start`, `center`, and `end`.
 
 Note, it's also possible to include the `core-layout.css` stylesheet separate
 from the `core-layout` element. Including the element automatically includes
-the stylesheet. To use the stylesheet independent of the element, css classes 
-should be used of the following form: `core-h`, `core-v`, `core-flex`, 
+the stylesheet. To use the stylesheet independent of the element, css classes
+should be used of the following form: `core-h`, `core-v`, `core-flex`,
 `core-justify-start`, and `core-align-start`.
 
 The `core-layout` and css file also provide a few commonly needed layout
-behaviors. Apply the `core-fit` class to fit an element to its container. To 
+behaviors. Apply the `core-fit` class to fit an element to its container. To
 ensure a container will contain an element inside it with the `core-fit` class
 give it the `core-relative` class.
 
@@ -156,7 +156,7 @@ You may also use the `core-layout` stylesheet directly:
     <div class="core-h core-justify-end">
       <div core-flex>Left</div>
       <div>Main</div>
-      <div>Right</div>  
+      <div>Right</div>
     </div>
 
     ---------------------------------
@@ -172,9 +172,9 @@ You may also use the `core-layout` stylesheet directly:
 <link rel="import" href="../polymer/polymer.html">
 
 <polymer-element name="core-layout" attributes="vertical justify align isContainer reverse" assetpath="../core-layout/">
-  
+
   <template>
-  
+
     <style no-shim="">/*
 Copyright 2013 The Polymer Authors. All rights reserved.
 Use of this source code is governed by a BSD-style
@@ -408,7 +408,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   display: -webkit-flex !important;
   display: flex !important;
 }
-  
+
 :host(.core-h) {
   -webkit-box-orient: horizontal;
   -ms-flex-direction: row;
@@ -416,7 +416,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   -webkit-flex-direction: row;
   flex-direction: row;
 }
-  
+
 :host(.core-v) {
   -webkit-box-orient: vertical;
   -ms-flex-direction: column;
@@ -432,7 +432,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   -webkit-flex-direction: row-reverse;
   flex-direction: row-reverse;
 }
-  
+
 :host(.core-v.core-reverse) {
   -webkit-box-direction: reverse;
   -ms-flex-direction: column-reverse;
@@ -490,7 +490,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   -webkit-align-items: center;
   align-items: center;
 }
-  
+
 :host(.core-align-end) {
   -webkit-box-align: end;
   -ms-flex-align: end;
@@ -499,13 +499,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   align-items: flex-end;
 }
 </style>
-  
+
   </template>
-  
+
   <script>
-  
+
   (function() {
-  
+
     Polymer('core-layout', {
 
       isContainer: false,
@@ -518,7 +518,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       vertical: false,
       /**
-       * Controls how the items are aligned in the main-axis direction. For 
+       * Controls how the items are aligned in the main-axis direction. For
        * example for a horizontal layout, this controls how each item is aligned
        * horizontally.
        *
@@ -528,7 +528,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       justify: '',
       /**
-       * Controls how the items are aligned in cross-axis direction. For 
+       * Controls how the items are aligned in cross-axis direction. For
        * example for a horizontal layout, this controls how each item is aligned
        * vertically.
        *
@@ -546,7 +546,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       reverse: false,
       layoutPrefix: 'core-',
-  
+
       // NOTE: include template so that styles are loaded, but remove
       // so that we can decide dynamically what part to include
       registerCallback: function(polymerElement) {
@@ -556,17 +556,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           s.removeAttribute('no-shim');
         })
       },
-  
+
       fetchTemplate: function() {
         return null;
       },
-  
+
       attached: function() {
         this.installScopeStyle(this.styles[0]);
         if (this.children.length) {
           this.isContainer = true;
         }
-        var container = this.isContainer ? this : this.parentNode;  
+        var container = this.isContainer ? this : this.parentNode;
         // detect if laying out a shadowRoot host.
         var forHost = container instanceof ShadowRoot;
         if (forHost) {
@@ -657,19 +657,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 /**
  * @group Polymer Core Elements
  *
- * The `core-iconset-svg` element allows users to define their own icon sets 
+ * The `core-iconset-svg` element allows users to define their own icon sets
  * that contain svg icons. The svg icon elements should be children of the
  * `core-iconset-svg` element. Multiple icons should be given distinct id's.
  *
- * Using svg elements to create icons has a few advantages over traditional 
+ * Using svg elements to create icons has a few advantages over traditional
  * bitmap graphics like jpg or png. Icons that use svg are vector based so they
- * are resolution independent and should look good on any device. They are 
+ * are resolution independent and should look good on any device. They are
  * stylable via css. Icons can be themed, colorized, and even animated.
  *
  * Example:
  *
  *     <core-iconset-svg id="my-svg-icons" iconSize="24">
- *       <svg> 
+ *       <svg>
  *         <defs>
  *           <g id="shape">
  *             <rect x="50" y="50" width="50" height="50" />
@@ -680,8 +680,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  *     </core-iconset-svg>
  *
  * This will automatically register the icon set "my-svg-icons" to the iconset
- * database.  To use these icons from within another element, make a 
- * `core-iconset` element and call the `byId` method 
+ * database.  To use these icons from within another element, make a
+ * `core-iconset` element and call the `byId` method
  * to retrieve a given iconset. To apply a particular icon inside an
  * element use the `applyIcon` method. For example:
  *
@@ -706,18 +706,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 /**
  * @group Polymer Core Elements
  *
- * The `core-iconset` element allows users to define their own icon sets. 
+ * The `core-iconset` element allows users to define their own icon sets.
  * The `src` property specifies the url of the icon image. Multiple icons may
  * be included in this image and they may be organized into rows.
  * The `icons` property is a space separated list of names corresponding to the
  * icons. The names must be ordered as the icons are ordered in the icon image.
  * Icons are expected to be square and are the size specified by the `iconSize`
- * property. The `width` property corresponds to the width of the icon image 
+ * property. The `width` property corresponds to the width of the icon image
  * and must be specified if icons are arranged into multiple rows in the image.
  *
  * All `core-iconset` elements are available for use by other `core-iconset`
  * elements via a database keyed by id. Typically, an element author that wants
- * to support a set of custom icons uses a `core-iconset` to retrieve 
+ * to support a set of custom icons uses a `core-iconset` to retrieve
  * and use another, user-defined iconset.
  *
  * Example:
@@ -727,9 +727,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
  *     </core-iconset>
  *
  * This will automatically register the icon set "my-icons" to the iconset
- * database.  To use these icons from within another element, make a 
+ * database.  To use these icons from within another element, make a
  * `core-iconset` element and call the `byId` method to retrieve a
- * given iconset. To apply a particular icon to an element, use the 
+ * given iconset. To apply a particular icon to an element, use the
  * `applyIcon` method. For example:
  *
  *     iconset.applyIcon(iconNode, 'car');
@@ -764,17 +764,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <!--
 `core-meta` provides a method of constructing a self-organizing database.
-It is useful to collate element meta-data for things like catalogs and for 
+It is useful to collate element meta-data for things like catalogs and for
 designer.
 
-Example, an element folder has a `metadata.html` file in it, that contains a 
+Example, an element folder has a `metadata.html` file in it, that contains a
 `core-meta`, something like this:
 
     <core-meta id="my-element" label="My Element">
       <property name="color" value="blue"></property>
     </core-meta>
 
-An application can import as many of these files as it wants, and then use 
+An application can import as many of these files as it wants, and then use
 `core-meta` again to access the collected data.
 
     <script>
@@ -789,8 +789,8 @@ Use `byId(id)` to retrive a specific core-meta.
       console.log(meta.byId('my-element'));
     </script>
 
-By default all meta-data are stored in a single databse.  If your meta-data 
-have different types and want them to be stored separately, use `type` to 
+By default all meta-data are stored in a single databse.  If your meta-data
+have different types and want them to be stored separately, use `type` to
 differentiate them.
 
 Example:
@@ -816,28 +816,28 @@ Example:
 <script>
 
   (function() {
-    
+
     var SKIP_ID = 'meta';
     var metaData = {}, metaArray = {};
 
     Polymer('core-meta', {
-      
+
       /**
        * The type of meta-data.  All meta-data with the same type with be
        * stored together.
-       * 
+       *
        * @attribute type
        * @type string
        * @default 'default'
        */
       type: 'default',
-      
+
       alwaysPrepare: true,
-      
+
       ready: function() {
         this.register(this.id);
       },
-      
+
       get metaArray() {
         var t = this.type;
         if (!metaArray[t]) {
@@ -845,7 +845,7 @@ Example:
         }
         return metaArray[t];
       },
-      
+
       get metaData() {
         var t = this.type;
         if (!metaData[t]) {
@@ -853,7 +853,7 @@ Example:
         }
         return metaData[t];
       },
-      
+
       register: function(id, old) {
         if (id && id !== SKIP_ID) {
           this.unregister(this, old);
@@ -861,7 +861,7 @@ Example:
           this.metaArray.push(this);
         }
       },
-      
+
       unregister: function(meta, id) {
         delete this.metaData[id || meta.id];
         var i = this.metaArray.indexOf(meta);
@@ -869,10 +869,10 @@ Example:
           this.metaArray.splice(i, 1);
         }
       },
-      
+
       /**
        * Returns a list of all meta-data elements with the same type.
-       * 
+       *
        * @attribute list
        * @type array
        * @default []
@@ -880,7 +880,7 @@ Example:
       get list() {
         return this.metaArray;
       },
-      
+
       /**
        * Retrieves meta-data by ID.
        *
@@ -891,21 +891,21 @@ Example:
       byId: function(id) {
         return this.metaData[id];
       }
-      
+
     });
-    
+
   })();
-  
+
 </script>
 </polymer-element>
 
 
 <polymer-element name="core-iconset" extends="core-meta" attributes="src width icons iconSize" assetpath="../core-iconset/">
-  
+
   <script>
-  
+
     Polymer('core-iconset', {
-  
+
       /**
        * The URL of the iconset image.
        *
@@ -972,7 +972,7 @@ Example:
         this.iconNames = [];
         this.themes = {};
       },
-  
+
       ready: function() {
         // TODO(sorvell): ensure iconset's src is always relative to the main
         // document
@@ -1023,7 +1023,7 @@ Example:
        * @param {String|Number} icon The name of the icon or the index of the
        * icon within in the icon image.
        * @param {String} theme The name of the theme.
-       * @returns {Object} An object specifying the offset of the given icon 
+       * @returns {Object} An object specifying the offset of the given icon
        * within the icon resource file; `offsetX` is the horizontal offset and
        * `offsetY` is the vertical offset. Both values are in pixel units.
        */
@@ -1045,7 +1045,7 @@ Example:
 
       /**
        * Applies an icon to the given element as a css background image. This
-       * method does not size the element, and it's often necessary to set 
+       * method does not size the element, and it's often necessary to set
        * the element's height and width so that the background image is visible.
        *
        * @method applyIcon
@@ -1053,7 +1053,7 @@ Example:
        * applied.
        * @param {String|Number} icon The name or index of the icon to apply.
        * @param {String} theme (optional) The name of the theme for the icon.
-       * @param {Number} scale (optional, defaults to 1) A scaling factor 
+       * @param {Number} scale (optional, defaults to 1) A scaling factor
        * with which the icon can be magnified.
        */
       applyIcon: function(element, icon, theme, scale) {
@@ -1062,7 +1062,7 @@ Example:
          if (element && offset) {
            var style = element.style;
            style.backgroundImage = 'url(' + this.src + ')';
-           style.backgroundPosition = (-offset.offsetX * scale + 'px') + 
+           style.backgroundPosition = (-offset.offsetX * scale + 'px') +
               ' ' + (-offset.offsetY * scale + 'px');
            style.backgroundSize = scale === 1 ? 'auto' :
               this.width * scale + 'px';
@@ -1077,11 +1077,11 @@ Example:
 
 
 <polymer-element name="core-iconset-svg" extends="core-meta" attributes="iconSize" assetpath="../core-iconset-svg/">
-  
+
   <script>
-  
+
     Polymer('core-iconset-svg', {
-  
+
 
       /**
        * The size of an individual icon. Note that icons must be square.
@@ -1325,7 +1325,7 @@ Example:
 </defs></svg>
 </core-iconset-svg>
 
-<!-- import core-icon for convenience 
+<!-- import core-icon for convenience
   TODO(sorvell): we'd rather do this in core-iconset but we can't until
   crbug.com/373461 is addressed
 -->
@@ -1386,10 +1386,10 @@ html /deep/ core-icon {
 <polymer-element name="core-icon" attributes="src size icon" assetpath="../core-icon/">
 <script>
 (function() {
-  
+
   // mono-state
   var meta;
-  
+
   Polymer('core-icon', {
 
     /**
@@ -1459,7 +1459,7 @@ html /deep/ core-icon {
     }
 
   });
-  
+
 })();
 </script>
 
@@ -1480,12 +1480,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <core-icon-button src="star.png"></core-icon-button>
 
-`core-icon-button` includes a default icon set.  Use `icon` to specify 
+`core-icon-button` includes a default icon set.  Use `icon` to specify
 which icon from the icon set to use.
 
     <core-icon-button icon="menu"></core-icon-button>
 
-See [`core-iconset`](#core-iconset) for more information about 
+See [`core-iconset`](#core-iconset) for more information about
 how to use a custom icon set.
 
 @group Polymer Core Elements
@@ -1644,7 +1644,7 @@ class on the `core-toolbar`.
     <core-toolbar class="tall">
       <core-icon-button icon="menu"></core-icon-button>
     </core-toolbar>
-    
+
 Apply `medium-tall` class to make the toolbar medium tall.
 
     <core-toolbar class="medium-tall">
@@ -1741,7 +1741,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 }
 
 /* shows bottom bar only when in normal height (!tall && !medium-tall) */
-:host(.no-overlap) > #topBar, 
+:host(.no-overlap) > #topBar,
 :host(.no-overlap) > #middleBar {
   transition: -webkit-transform 0.18s ease-in;
   transition: transform 0.18s ease-in;
@@ -1786,7 +1786,7 @@ polyfill-next-selector { content: ':host .indent'; }
   <div id="bottomBar" class="toolbar-tools" center="" horizontal="" layout="">
     <content select=".bottom"></content>
   </div>
-  
+
   <div id="middleBar" class="toolbar-tools" center="" horizontal="" layout="">
     <content select=".middle"></content>
   </div>
@@ -1819,7 +1819,7 @@ Example:
       <div>Content goes here...</div>
     </core-header-panel>
 
-If you want to use other than `core-toolbar` for the header, add 
+If you want to use other than `core-toolbar` for the header, add
 `core-header` class to that element.
 
 Example:
@@ -1886,8 +1886,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   display: none;
 }
 
-/* 
-mode: scroll 
+/*
+mode: scroll
 */
 :host([mode=scroll]) #mainContainer {
   overflow: visible;
@@ -1913,19 +1913,19 @@ mode: cover
   width: 100%;
 }
 </style>
-  
+
   <div id="outerContainer" on-scroll="{{scroll}}" vertical="" layout="">
 
     <content id="headerContent" select="core-toolbar, .core-header"></content>
 
     <div id="mainPanel" flex="" vertical="" layout="">
-    
+
       <div id="mainContainer" flex?="{{mode !== &apos;cover&apos;}}" on-scroll="{{scroll}}">
         <content id="mainContent" select="*"></content>
       </div>
-      
+
       <div id="dropShadow"></div>
-      
+
     </div>
 
   </div>
@@ -1938,20 +1938,20 @@ mode: cover
     publish: {
       /**
        * Controls header and scrolling behavior. Options are
-       * `standard`, `seamed`, `waterfall`, `waterfall-tall`, 
+       * `standard`, `seamed`, `waterfall`, `waterfall-tall`,
        * `waterfall-medium-tall`, `scroll` and `cover`.
        * Default is `standard`.
        *
-       * `standard`: The header is a step above the panel. The header will consume the 
-       * panel at the point of entry, preventing it from passing through to the 
+       * `standard`: The header is a step above the panel. The header will consume the
+       * panel at the point of entry, preventing it from passing through to the
        * opposite side.
        *
        * `seamed`: The header is presented as seamed with the panel.
        *
-       * `waterfall`: Similar to standard mode, but header is initially presented as 
+       * `waterfall`: Similar to standard mode, but header is initially presented as
        * seamed with panel, but then separates to form the step.
        *
-       * `waterfall-tall`: The header is initially taller (`tall` class is added to 
+       * `waterfall-tall`: The header is initially taller (`tall` class is added to
        * the header).  As the user scrolls, the header separates (forming an edge)
        * while condensing (`tall` class is removed from the header).
        *
@@ -1969,7 +1969,7 @@ mode: cover
        *         margin: 60px 60px 60px 0;
        *       }
        *     </style>
-       * 
+       *
        *     <core-header-panel mode="cover">
        *       <core-appbar class="tall">
        *         <core-icon-button icon="menu"></core-icon-button>
@@ -1982,7 +1982,7 @@ mode: cover
        * @default ''
        */
       mode: {value: '', reflect: true},
-      
+
       /**
        * The class used in waterfall-tall mode.  Change this if the header
        * accepts a different class for toggling height, e.g. "medium-tall"
@@ -1992,7 +1992,7 @@ mode: cover
        * @default 'tall'
        */
       tallClass: 'tall',
-      
+
       /**
        * If true, the drop-shadow is always shown no matter what mode is set to.
        *
@@ -2002,7 +2002,7 @@ mode: cover
        */
       shadow: false,
     },
-    
+
     domReady: function() {
       this.async('scroll');
     },
@@ -2014,22 +2014,22 @@ mode: cover
     get header() {
       return this.$.headerContent.getDistributedNodes()[0];
     },
-    
+
     scroll: function() {
       var shadowMode = {'waterfall': 1, 'waterfall-tall': 1};
       var noShadow = {'seamed': 1, 'cover': 1, 'scroll': 1};
       var tallMode = {'waterfall-tall': 1};
-      
+
       var main = this.$.mainContainer;
       var header = this.header;
-      
+
       var sTop = main.scrollTop;
       var atTop = sTop === 0;
-      
+
       if (header) {
         this.$.dropShadow.classList.toggle('hidden', !this.shadow &&
             (atTop && shadowMode[this.mode] || noShadow[this.mode]));
-        
+
         if (tallMode[this.mode]) {
           header.classList.toggle(this.tallClass, atTop);
         }
@@ -3374,8 +3374,8 @@ Element wrapper for the `highlightjs` (http://highlightjs.org/) library.
 
     <highlightjs-element>
       <template>
-    
-        <link rel="import" href="/components/polymer/polymer.html">
+
+        <link rel="import" href="components/polymer/polymer.html">
         <polymer-element name="proto-element">
         <template>
           <span>I'm <b>proto-element</b>. Check out my prototype.</span>
@@ -3385,7 +3385,7 @@ Element wrapper for the `highlightjs` (http://highlightjs.org/) library.
           });
         </script>
         </polymer-element>
-    
+
       </template>
     </highlightjs-element>
 
@@ -3559,7 +3559,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 }
 </style>
     <style>/* Base16 Atelier Forest Light - Theme */
-/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/forest) */ 
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/forest) */
 /* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
 /* https://github.com/jmblog/color-themes-for-highlightjs */
 
@@ -3682,28 +3682,28 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
 </polymer-element>
 
 <script>(function(scope) {
-  
+
   var ContextFreeParser = {
     parse: function(text) {
       var top = {};
       var entities = [];
       var current = top;
       var subCurrent = {};
-  
+
       var scriptDocCommentClause = '\\/\\*\\*([\\s\\S]*?)\\*\\/';
       var htmlDocCommentClause = '<!--([\\s\\S]*?)-->';
-  
+
       // matches text between /** and */ inclusive and <!-- and --> inclusive
       var docCommentRegex = new RegExp(scriptDocCommentClause + '|' + htmlDocCommentClause, 'g');
-  
+
       // acquire all script doc comments
       var docComments = text.match(docCommentRegex) || [];
-  
+
       // each match represents a single block of doc comments
       docComments.forEach(function(m) {
         // unify line ends, remove all comment characters, split into individual lines
         var lines = m.replace(/\r\n/g, '\n').replace(/^\s*\/\*\*|^\s*\*\/|^\s*\* ?|^\s*\<\!-\-|^s*\-\-\>/gm, '').split('\n');
-  
+
         // pragmas (@-rules) must occur on a line by themselves
         var pragmas = [];
         // filter lines whose first non-whitespace character is @ into the pragma list
@@ -3715,15 +3715,15 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
           }
           pragmas.push(m);
         });
-  
+
         // collect all other text into a single block
         var code = lines.join('\n');
-        
+
         // process pragmas
         pragmas.forEach(function(m) {
           var pragma = m[1], content = m[2];
           switch (pragma) {
-  
+
             // currently all entities are either @class or @element
             case 'class':
             case 'element':
@@ -3733,7 +3733,7 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
               };
               entities.push(current);
               break;
-            
+
             // an entity may have these describable sub-features
             case 'attribute':
             case 'property':
@@ -3746,20 +3746,20 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
               var label = pragma == 'property' ? 'properties' : pragma + 's';
               makePragma(current, label, subCurrent);
               break;
-  
+
             // sub-feature pragmas
             case 'default':
             case 'type':
               subCurrent[pragma] = content;
               break;
-  
+
             // everything else
             default:
               current[pragma] = content;
               break;
           }
         });
-  
+
         // utility function, yay hoisting
         function makePragma(object, pragma, content) {
           var p$ = object;
@@ -3769,22 +3769,22 @@ Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiac
           }
           p.push(content);
         }
-  
+
       });
-  
+
       if (entities.length === 0) {
         entities.push({name: 'Entity', description: '**Undocumented**'});
       }
       return entities;
     }
   };
-  
+
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = ContextFreeParser;
   } else {
     scope.ContextFreeParser = ContextFreeParser;
   }
-  
+
 })(this);</script>
 <!--
 Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
@@ -3806,7 +3806,7 @@ The `core-ajax` element exposes `XMLHttpRequest` functionality.
         params='{"alt":"json", "q":"chrome"}'
         handleAs="json"
         on-core-response="{{handleResponse}}"></core-ajax>
- 
+
 With `auto` set to `true`, the element performs a request whenever
 its `url` or `params` properties are changed.
 
@@ -3892,7 +3892,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
         return xhr;
       },
-    
+
       toQueryString: function(params) {
         var r = [];
         for (var n in params) {
@@ -3906,7 +3906,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       isBodyMethod: function(method) {
         return this.bodyMethods[(method || '').toUpperCase()];
       },
-      
+
       bodyMethods: {
         POST: 1,
         PUT: 1,
@@ -3932,7 +3932,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     });
 
   </script>
-  
+
 </polymer-element>
 
 <polymer-element name="core-ajax" attributes="url handleAs auto params response method headers body contentType withCredentials" assetpath="../core-ajax/">
@@ -3941,16 +3941,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     Polymer('core-ajax', {
       /**
        * Fired when a response is received.
-       * 
+       *
        * @event core-response
        */
- 
+
       /**
        * Fired when an error is received.
-       * 
+       *
        * @event core-error
        */
- 
+
       /**
        * Fired whenever a response or an error is received.
        *
@@ -3959,7 +3959,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       /**
        * The URL target of the request.
-       * 
+       *
        * @attribute url
        * @type string
        * @default ''
@@ -3969,13 +3969,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       /**
        * Specifies what data to store in the `response` property, and
        * to deliver as `event.response` in `response` events.
-       * 
+       *
        * One of:
-       * 
+       *
        *    `text`: uses `XHR.responseText`.
-       *    
+       *
        *    `xml`: uses `XHR.responseXML`.
-       *    
+       *
        *    `json`: uses `XHR.responseText` parsed as JSON.
        *
        *    `arraybuffer`: uses `XHR.response`.
@@ -3983,7 +3983,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        *    `blob`: uses `XHR.response`.
        *
        *    `document`: uses `XHR.response`.
-       *  
+       *
        * @attribute handleAs
        * @type string
        * @default 'text'
@@ -4001,7 +4001,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       /**
        * Parameters to send to the specified URL, as JSON.
-       *  
+       *
        * @attribute params
        * @type string (JSON)
        * @default ''
@@ -4032,13 +4032,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        *
        * Example:
        *
-       *     <core-ajax 
+       *     <core-ajax
        *         auto
        *         url="http://somesite.com"
        *         headers='{"X-Requested-With": "XMLHttpRequest"}'
        *         handleAs="json"
        *         on-core-response="{{handleResponse}}"></core-ajax>
-       *  
+       *
        * @attribute headers
        * @type Object
        * @default null
@@ -4053,7 +4053,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        *     <core-ajax method="POST" auto url="http://somesite.com"
        *         body='{"foo":1, "bar":2}'>
        *     </core-ajax>
-       *  
+       *
        * @attribute body
        * @type Object
        * @default null
@@ -4071,13 +4071,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       /**
        * Set the withCredentials flag on the request.
-       * 
+       *
        * @attribute withCredentials
        * @type boolean
        * @default false
        */
       withCredentials: false,
-      
+
       ready: function() {
         this.xhr = document.createElement('core-xhr');
       },
@@ -4164,8 +4164,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.autoGo();
       },
 
-      // TODO(sorvell): multiple side-effects could call autoGo 
-      // during one micro-task, use a job to have only one action 
+      // TODO(sorvell): multiple side-effects could call autoGo
+      // during one micro-task, use a job to have only one action
       // occur
       autoGo: function() {
         if (this.auto) {
@@ -4753,7 +4753,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <core-item icon="dialog" label="Dialog"></core-item>
       <core-item icon="search" label="Search"></core-item>
     </core-menu>
-    
+
 When an item is selected the `core-selected` class is added to it.  The user can
 use the class to add more stylings to the selected item.
 
@@ -4874,16 +4874,16 @@ visual appearance and is typically used in conjunction with another element.
 For example, [core-selector](../core-selector)
 use a `<core-selection>` to manage selection.
 
-To mark an item as selected, call the `select(item)` method on 
+To mark an item as selected, call the `select(item)` method on
 `<core-selection>`. The item itself is an argument to this method.
 
 The `<core-selection>`element manages selection state for any given set of
 items. When an item is selected, the `core-select` event is fired.
 
 The attribute `multi` indicates if multiple items can be selected at once.
-  
+
 Example:
- 
+
     <polymer-element name="selection-example">
        <template>
          <style>
@@ -4916,7 +4916,7 @@ Example:
       <li>Green</li>
       <li>Blue</li>
     </selection-example>
- 
+
 @element core-selection
 -->
 
@@ -4953,7 +4953,7 @@ contains the selection state.
        * Retrieves the selected item(s).
        * @method getSelection
        * @returns Returns the selected item(s). If the multi property is true,
-       * getSelection will return an array, otherwise it will return 
+       * getSelection will return an array, otherwise it will return
        * the selected item or undefined if there is no selection.
       */
       getSelection: function() {
@@ -5073,7 +5073,7 @@ contains the selection state.
 
       /**
        * Specifies the CSS class to be used to add to the selected element.
-       * 
+       *
        * @attribute selectedClass
        * @type string
        * @default 'core-selected'
@@ -5103,7 +5103,7 @@ contains the selection state.
       /**
        * Returns the currently selected element. In multi-selection this returns
        * an array of selected elements.
-       * 
+       *
        * @attribute selectedItem
        * @type Object
        * @default null
@@ -5113,7 +5113,7 @@ contains the selection state.
       /**
        * In single selection, this returns the model associated with the
        * selected element.
-       * 
+       *
        * @attribute selectedModel
        * @type Object
        * @default null
@@ -5130,9 +5130,9 @@ contains the selection state.
       selectedIndex: -1,
 
       /**
-       * The target element that contains items.  If this is not set 
+       * The target element that contains items.  If this is not set
        * core-selector is the container.
-       * 
+       *
        * @attribute target
        * @type Object
        * @default null
@@ -5140,7 +5140,7 @@ contains the selection state.
       target: null,
 
       /**
-       * This can be used to query nodes from the target node to be used for 
+       * This can be used to query nodes from the target node to be used for
        * selection items.  Note this only works if the 'target' property is set.
        *
        * Example:
@@ -5152,7 +5152,7 @@ contains the selection state.
        *       <label><input type="radio" name="color" value="blue"> Blue</label> <br>
        *       <p>color = {{color}}</p>
        *     </form>
-       * 
+       *
        * @attribute itemSelector
        * @type string
        * @default ''
@@ -5191,8 +5191,8 @@ contains the selection state.
         if (!this.target) {
           return [];
         }
-        var nodes = this.target !== this ? (this.itemsSelector ? 
-            this.target.querySelectorAll(this.itemsSelector) : 
+        var nodes = this.target !== this ? (this.itemsSelector ?
+            this.target.querySelectorAll(this.itemsSelector) :
                 this.target.children) : this.$.items.getDistributedNodes();
         return Array.prototype.filter.call(nodes || [], function(n) {
           return n && n.localName !== 'template';
@@ -5242,7 +5242,7 @@ contains the selection state.
 
       validateSelected: function() {
         // convert to an array for multi-selection
-        if (this.multi && !Array.isArray(this.selected) && 
+        if (this.multi && !Array.isArray(this.selected) &&
             this.selected !== null && this.selected !== undefined) {
           this.selected = [this.selected];
         }
@@ -5261,7 +5261,7 @@ contains the selection state.
       },
 
       valueToSelection: function(value) {
-        var item = (value === null || value === undefined) ? 
+        var item = (value === null || value === undefined) ?
             null : this.items[this.valueToIndex(value)];
         this.$.selection.select(item);
       },
@@ -5277,7 +5277,7 @@ contains the selection state.
         } else {
           this.selectedModel = null;
         }
-        this.selectedIndex = this.selectedItem ? 
+        this.selectedIndex = this.selectedItem ?
             parseInt(this.valueToIndex(this.selected)) : -1;
       },
 
@@ -5399,13 +5399,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <!--
-`core-item` is a simple line-item object: a label and/or an icon that can also 
+`core-item` is a simple line-item object: a label and/or an icon that can also
 act as a link.
 
 Example:
 
     <core-item icon="settings" label="Settings"></core-item>
-    
+
 To use as a link, put &lt;a&gt; element in the item.
 
 Example:
@@ -5458,12 +5458,12 @@ html /deep/ core-item::shadow ::content > a {
 <template>
 
   <core-icon src="{{src}}" icon="{{icon}}" hidden?="{{!src &amp;&amp; !icon}}"></core-icon>{{label}}<content></content>
-  
+
 </template>
 <script>
 
   Polymer('core-item', {
-    
+
     /**
      * The URL of an image for the icon.
      *
@@ -5653,7 +5653,7 @@ Displays formatted source documentation scraped from input urls.
         }
       },
 
-      selectedChanged: function() { 
+      selectedChanged: function() {
         this.data = this.classes[this.selected];
       },
 
